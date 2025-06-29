@@ -7,6 +7,14 @@
 
 ---
 
+## Epchos ?
+Suppose you have 1,000 images in your training set.
+If you train for:
+1 epoch: the model sees all 1,000 images once
+10 epochs: the model sees all 1,000 images 10 times (in different shuffled order each time)
+
+---
+
 ## 🧠 What is YOLO?
 
 **YOLO (You Only Look Once)** is a revolutionary object detection algorithm that detects all objects in an image **in a single forward pass** through a neural network.
@@ -243,7 +251,7 @@ pip install ultralytics
 yolo predict model=yolov8n.pt source='https://ultralytics.com/images/bus.jpg'
 
 # Training custom model
-yolo train model=yolov8n.pt data=coco128.yaml epochs=100 imgsz=640
+!yolo task=detect mode=train model=yolov8n.pt data=data.yaml epochs=10 imgsz=640
 
 # Validation
 yolo val model=yolov8n.pt data=coco128.yaml
@@ -253,6 +261,14 @@ yolo export model=yolov8n.pt format=onnx
 ```
 
 ---
+
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
+
+**train** : It is used to train the model on a dataset.
+**val** : It is used to find the accuracy of the model on previously seen values.
+**test** : It is used to finally evaluate the model on unseen values.
 
 ## 💻 YOLO Output Structure & Processing
 
